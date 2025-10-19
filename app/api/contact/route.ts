@@ -1,18 +1,11 @@
-// app/api/contact/route.ts
+// app/api/contact/route.ts (corrected)
 import { ContactFormEmail } from "@/emails/contact-form-email";
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-// Initialize Resend with error handling
-let resend: Resend;
-try {
-  resend = new Resend(process.env.RESEND_API_KEY!);
-} catch (error) {
-  console.error("Resend initialization error:", error);
-}
+const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function POST(request: NextRequest) {
-  // Check if Resend API key is configured
   if (!process.env.RESEND_API_KEY) {
     console.error("RESEND_API_KEY is not configured");
     return NextResponse.json(
@@ -27,8 +20,6 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { name, email, subject, message } = body;
-
-    console.log("Received contact form submission:", { name, email, subject });
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -61,13 +52,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send email using Resend
-    console.log("Attempting to send email via Resend...");
+    // Send email using Resend - USE YOUR VERIFIED DOMAIN
 
     const { data, error } = await resend.emails.send({
-      from: "Soft-lutions <onboarding@resend.dev>", // Use Resend's test domain
-      to: ["ask@soft-lutions.com.ng"], // Your email
-      replyTo: email,
+      from: "Soft-lutions <contact@soft-lutions.com.ng>", // ✅ Use your verified domain
+      to: ["ask@soft-lutions.com.ng"], // ✅ Use your domain email
+      replyTo: email, // This allows you to reply directly to the sender
       subject: `New Contact Form: ${subject}`,
       text: `
 Name: ${name.trim()}
@@ -93,7 +83,6 @@ ${message.trim()}
       );
     }
 
-    console.log("✅ Email sent successfully! Message ID:", data?.id);
     return NextResponse.json({
       success: true,
       message: "Message sent successfully!",
