@@ -2,6 +2,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Code2, Mail, ArrowUp } from "lucide-react";
+import Image from "next/image";
 
 interface FooterLink {
   label: string;
@@ -108,10 +109,14 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className='lg:col-span-1'>
-            <div className='flex items-center gap-3 mb-6'>
-              <div className='w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center'>
-                <Code2 className='w-6 h-6 text-white' />
-              </div>
+            <div className='flex items-center gap-1 mb-6'>
+              <Image
+                alt='Soft-lutions logo'
+                src='/logo2.png'
+                width={60}
+                height={50}
+                className='object-cover'
+              />
               <div className='flex flex-col'>
                 <span className='text-xs text-blue-400 font-medium leading-none'>
                   CodeMat

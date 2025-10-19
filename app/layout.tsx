@@ -49,7 +49,7 @@ export const metadata: Metadata = {
       "Transform your business with cutting-edge web development, AI integration, and digital solutions at affordable prices.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: "Soft-lutions - Digital Excellence Made Affordable",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     title: "Soft-lutions | Modern Web Development & AI Solutions",
     description:
       "Transform your business with cutting-edge web development and AI solutions at affordable prices.",
-    images: ["/og-image.jpg"],
+    images: ["/opengraph-image.jpg"],
   },
 
   // Additional Metadata
@@ -103,7 +103,7 @@ export const metadata: Metadata = {
   category: "technology",
   classification: "Web Development, AI Solutions, Digital Transformation",
 
-  
+
 };
 
 

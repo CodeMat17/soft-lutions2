@@ -11,6 +11,7 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+import Image from "next/image";
 
 interface NavItem {
   label: string;
@@ -41,15 +42,16 @@ export default function Header() {
       transition={{ duration: 0.6 }}
       className='fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700'>
       <nav className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex items-center justify-between h-16 lg:h-20'>
+        <div className='flex items-center justify-between py-1'>
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className='flex items-center gap-3 cursor-pointer'
+            className='flex items-center gap-1 cursor-pointer'
             onClick={() => scrollToSection("#home")}>
-            <div className='w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center'>
-              <Code2 className='w-6 h-6 text-white' />
-            </div>
+          
+            
+              <Image alt='Soft-lutions logo' src='/logo2.png' width={60} height={50} className="object-cover" />
+         
             <div className='flex flex-col'>
               <span className='text-xs text-blue-600 dark:text-blue-400 font-medium leading-none'>
                 CodeMat
