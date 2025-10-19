@@ -56,7 +56,7 @@ export default function Header() {
               <span className='text-xs text-blue-600 dark:text-blue-400 font-medium leading-none'>
                 CodeMat
               </span>
-              <span className='text-2xl font-bold text-gray-900 dark:text-white leading-none'>
+              <span className='text-xl font-bold text-gray-900 dark:text-white leading-none'>
                 Soft-lutions
               </span>
             </div>

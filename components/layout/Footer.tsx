@@ -1,7 +1,7 @@
 // components/layout/Footer.tsx (updated)
 "use client";
 import { motion } from "framer-motion";
-import { Code2, Mail, ArrowUp } from "lucide-react";
+import { Mail, ArrowUp } from "lucide-react";
 import Image from "next/image";
 
 interface FooterLink {
@@ -121,7 +121,7 @@ export default function Footer() {
                 <span className='text-xs text-blue-400 font-medium leading-none'>
                   CodeMat
                 </span>
-                <span className='text-2xl font-bold text-white leading-none'>
+                <span className='text-xl font-bold text-white leading-none'>
                   Soft-lutions
                 </span>
               </div>
